@@ -5,14 +5,17 @@
 import axios from 'axios';
 
 export default {
+  data() {
+    return {
+      dischi: [] // Inizializza l'array vuoto
+    };
+  },
   mounted() {
     axios.get('server.php')
       .then(response => {
-        // La pagina server.php è allo stesso livello di index.php
-        console.log(response.data);
+        this.dischi = response.data.result;
       })
       .catch(error => {
-        // Gestisci gli errori
         console.error(error);
       });
   }
