@@ -51,7 +51,12 @@ $response = [
     ]
 ];
 
+$jsonFile = 'dischi.json';
+$jsonContent = file_get_contents($jsonFile);
+
+$dataArray = json_decode($jsonContent, true);
+
 // Converti l'array in formato JSON e invialo come risposta
-echo json_encode($response);
+echo json_encode($dataArray);
 
 ?>
